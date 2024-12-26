@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Form</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-screen h-screen bg-red-500 flex justify-center items-center">
+      <div class="w-[500px] h-[500px] bg-pink-200 py-3 px-4">
+        <form action="">
+          <div class="mb-5 grid grid-cols-2 gap-4">
+            <div class="w-full h-full">
+              <label for="name" class="block mb-2 font-bold text-gray-600"
+                >First Name</label
+              >
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="First Name"
+                class="border border-gray-300 shadow p-3 w-full rounded mb-"
+              />
+            </div>
+
+            <div class="w-full h-full">
+              <label for="name" class="block mb-2 font-bold text-gray-600"
+                >Last Name</label
+              >
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Last Name"
+                class="border border-gray-300 shadow p-3 w-full rounded mb-"
+              />
+            </div>
+          </div>
+
+          <button
+            class="block w-full bg-blue-500 text-white font-bold p-4 rounded-lg"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
