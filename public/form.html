@@ -49,7 +49,6 @@
             </div>
           </div>
 
-          <!-- Email -->
           <div class="mb-4">
             <label for="email" class="block text-gray-700 font-bold"
               >Email</label
@@ -65,7 +64,6 @@
             <span id="email_error" class="text-red-500"></span>
           </div>
 
-          <!-- Country -->
           <div class="mb-4">
             <label for="country" class="block text-gray-700 font-bold"
               >Country</label
@@ -84,7 +82,6 @@
             <span id="country_error" class="text-red-500"></span>
           </div>
 
-          <!-- State -->
           <div class="mb-4">
             <label for="state" class="block text-gray-700 font-bold"
               >State</label
@@ -96,7 +93,6 @@
             <span id="state_error" class="text-red-500"></span>
           </div>
 
-          <!-- City -->
           <div class="mb-4">
             <label for="city" class="block text-gray-700 font-bold">City</label>
             <select id="city" name="city" class="w-full p-2 border rounded">
@@ -106,7 +102,6 @@
             <span id="city_error" class="text-red-500"></span>
           </div>
 
-          <!-- Gender -->
           <div class="mb-4">
             <label class="block text-gray-700 font-bold">Gender</label>
             <div>
@@ -212,7 +207,6 @@
           }
         });
 
-        // Fetch countries data from the server
         const fetchCountries = async () => {
           try {
             const response = await fetch("/countries");
@@ -391,6 +385,8 @@
 
               if (result.status) {
                 console.log("Form submitted successfully!");
+                window.location.href = result.redirectUrl;
+
                 // form.reset();
               } else {
                 document.getElementById("server_side_error").innerHTML = "";
@@ -403,7 +399,7 @@
               }
             } catch (error) {
               document.getElementById("server_side_error").innerHTML +=
-                    "*Server Side Error Occured";
+                "*Server Side Error Occured";
               console.error("Error submitting form:", error);
             }
           }

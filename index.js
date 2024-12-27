@@ -13,9 +13,45 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'form.html'));
 })
 
+
 app.get('/registrations', (req, res) => {
-    
-})
+    const registrationsPath = path.join(__dirname, '/storage/registrations.json');
+    const templatePath = path.join(__dirname, 'public', 'registrations.html');
+
+    fs.readFile(registrationsPath, 'utf8', (err, data) => {
+        if (err) {
+            console.error("Error reading registrations:", err);
+            return res.status(500).send("Server Error");
+        }
+
+        const registrations = JSON.parse(data);
+
+        fs.readFile(templatePath, 'utf8', (err, htmlTemplate) => {
+            if (err) {
+                console.error("Error reading HTML template:", err);
+                return res.status(500).send("Server Error");
+            }
+
+            const tableRows = registrations.map(reg => `
+                <tr>
+                    <td>${reg.first_name}</td>
+                    <td>${reg.last_name}</td>
+                    <td>${reg.email}</td>
+                    <td>${reg.gender}</td>
+                    <td>${reg.country}</td>
+                    <td>${reg.state}</td>
+                    <td>${reg.city}</td>
+                    <td>${reg.dob}</td>
+                </tr>
+            `).join('');
+
+            const finalHTML = htmlTemplate.replace("{{registrationsData}}", tableRows);
+
+            res.send(finalHTML);
+        });
+    });
+});
+
 
 app.get('/countries', (req, res) => {
     const dataPath = path.join(__dirname, '/storage/countriesData.json');
@@ -92,7 +128,6 @@ app.post("/registration", (req, res) => {
         errors.push("Invalid city selected.");
     }
 
-    // Return errors if any
     if (errors.length > 0) {
         return res.status(400).json({ status: false, errors: errors });
     }
@@ -110,7 +145,7 @@ app.post("/registration", (req, res) => {
                 console.error("Error saving registration:", err);
                 return res.status(500).json({ status: false, error: ["Failed to save registration data"] });
             }
-            res.status(200).json({status: true, message: "Registration saved successfully" });
+            res.status(200).json({ status: true, message: "Registration saved successfully", redirectUrl: '/registrations' });
         });
     });
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrations</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto py-10">
+      <h1 class="text-2xl font-bold mb-5">All Registrations</h1>
+      <table class="table-auto w-full border-collapse border border-gray-300">
+        <thead>
+          <tr>
+            <th class="border border-gray-300 px-4 py-2">First Name</th>
+            <th class="border border-gray-300 px-4 py-2">Last Name</th>
+            <th class="border border-gray-300 px-4 py-2">Email</th>
+            <th class="border border-gray-300 px-4 py-2">Gender</th>
+            <th class="border border-gray-300 px-4 py-2">Country</th>
+            <th class="border border-gray-300 px-4 py-2">State</th>
+            <th class="border border-gray-300 px-4 py-2">City</th>
+            <th class="border border-gray-300 px-4 py-2">Date of Birth</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{registrationsData}}
+        </tbody>
+      </table>
+
+      <button class="btn mt-[10px]" onclick="goBack()">Go Back</button>
+    </div>
+    <script>
+      function goBack() {
+        window.location.href = "/";
+      }
+    </script>
+  </body>
+</html>
