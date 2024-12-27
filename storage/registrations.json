@@ -1,0 +1,32 @@
+[
+  {
+    "first_name": "Roshan",
+    "last_name": "Jha",
+    "email": "kumarroshanjha786@gmail.com",
+    "gender": "Female",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "dob": "2000-12-20"
+  },
+  {
+    "first_name": "Roshan",
+    "last_name": "Jha",
+    "email": "kumarroshanjha786@gmail.com",
+    "gender": "Male",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "dob": "2000-12-20"
+  },
+  {
+    "first_name": "Pankaj",
+    "last_name": "Jha",
+    "email": "kumarroshanjha786@gmail.com",
+    "gender": "Male",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "dob": "2000-12-20"
+  }
+]
